@@ -29,6 +29,7 @@ void SquareMaze::makeMaze(int width, int height)
 		maze.push_back(row);
 	}
 	
+	/*Ensures that we get a new maze most of the time.*/
 	std::random_shuffle(temp.begin(), temp.end());
 	
 	for(std::vector< pair< int,  pair<int, int>  > >::iterator it = 
@@ -77,7 +78,14 @@ void SquareMaze::makeMaze(int width, int height)
 				return;
 				break;
 			}//switch
-	}//for
+	}
+	/*
+	Note about the code commented below:
+	This code is probably a little buggy and incomplete, but it's also a naive implementation.
+	While for small mazes it's pretty useful, once the maze size gets sufficiently large,
+	it's far too slow to consider using.
+	*/
+	
 /*	srand(time(0));
 	int rwidth = rand()%width;
 	int rheight = rand()%height;*/
